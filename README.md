@@ -29,3 +29,5 @@ To get the flag, it is enough to replace the return address with the address of 
 	    ...
 
 The split_at() function will fail with a size larger than the input size (400 bytes exactly). But, fortunately, the read() function also has some logical vulnerability - it reads data up to b'\x0a', but counts it up to b'\x00'. It's weird, isn't it?)
+
+Within BoF we get ROP. There is only one complication, we need to push the /bin/sh string on the stack, however Rust, even without a library, puts a lot of gadgets in executable files for this.
